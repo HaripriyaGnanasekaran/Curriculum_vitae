@@ -1,0 +1,409 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo 
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+  a4paper, 
+%   showframes,
+%   maincolor=cvgreen,
+%   sectioncolor=red,
+%   subsectioncolor=orange
+%   sidebarwidth=0.4\paperwidth,
+%   topbottommargin=0.03\paperheight,
+%   leftrightmargin=20pt
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% take care of proper font encoding
+\ifxetex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+% \newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+% \usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+  % defaut font size is \large, so adjust to harmonize with sidebar layout
+  bubble center node font = \footnotesize,
+  bubble node font = \footnotesize,
+  % default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+  bubble center node size = 0.4\sidebartextwidth,
+  bubble node size = 0.25\sidebartextwidth,
+  distance center/other bubbles = 1.5em,
+  % set center bubble color
+  bubble center node color = maincolor!70,
+  % define the list of colors usable in the diagram
+  set color list = {maincolor!10, maincolor!40,
+  maincolor!20, maincolor!60, maincolor!35},
+  % sets the opacity at which the bubbles are shown
+  bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+% profile picture
+\cvprofilepic{pics/profile.jpg}
+% your name
+\cvname{Ramanathan Varadharajan}
+% job title/careersvs
+\cvjobtitle{Ph.D. Researcher}
+% date of birth
+\cvbirthday{Mar 25, 1993}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Asserpark 44 1B8 \newline 6706HC Wageningen \newline The Netherlands}
+% phone number
+\cvphone{+31 649798400}
+% personal website
+\cvsite{www.ramanathanvaradharajan.com}
+% email address
+\cvmail{ramanathan.varadharajan@outlook.com}
+% git hub
+\cvgit{github.com/ramanathanvaradharajan}
+% pgp key
+%\cvkey{}{0xAABBCCDDFF00FF00}
+% add additional information
+% \newcommand{\additional}{some more?}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% overwrite default icons and order of personal information
+% \renewcommand{\personaltable}{%
+% 	\begin{personal}[0.8em]
+% 		\circleicon{\faKey}      & \cvkey  \\
+% 		\circleicon{\faAt}       & \cvmail \\
+% 		\circleicon{\faGlobe}    & \cvsite \\
+% 		\circleicon{\faPhone}    & \cvphone \\
+% 		\circleicon{\faEnvelope} & \cvaddress \\
+% 		\circleicon{\faInfo}     & \cvbirthday \\
+% 		% add another line
+% 		\circleicon{\faQuestion} & \additional
+% 	\end{personal}
+% }
+
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+	\profilesection{\Large{Programming Skills*}}
+	    \pointskill{\faCode}{C++, C, Fortran}{5}
+	    \pointskill{\faTerminal}{Bash, Shell}{5}
+	    \pointskill{\faDesktop}{Python, R, Matlab}{4}
+	    \pointskill{\faCodeFork}{Git, CUDA, MPI}{3}
+	    \pointskill{\faInternetExplorer}{HTML, Java}{1}
+	    
+%		\pointskill{\flag{CN.png}}{Chinese}{5}
+%		\pointskill{\flag{DE.png}}{German}{3}
+%  	\pointskill{\flag{GB.png}}{English}{3}
+%  	\pointskill{\flag{FR.png}}{French}{3}
+
+    \profilesection{\Large{Experimental Skills*}}
+	    \pointskill{\faFighterJet}{Subsonic wind tunnel}{5}
+	    \pointskill{\faShip}{Wave tank, Shock tube}{4}
+	    \pointskill{\faCog}{Scattering Techniques}{3}
+	        \skill[1.8em]{\faCogs}{Light, X-ray}
+	    \pointskill{\faCamera}{High speed Imaging}{2}
+	    \pointskill{\faBinoculars}{Microscopy}{1}
+	        \skill[1.8em]{\faCog}{Light, Electron, Confocal}
+
+	\profilesection{\Large{Analytical Skills}}
+		\skill{\faSuperscript}{Mathematical modeling of processes}
+		\skill{\faSitemap}{Reasoning, Decision making}
+		\skill{\faGraduationCap}{Assimilating new topics}
+		%\skill{\faUniversity}{Willingness to learn}
+		\skill{\faDesktop}{Expertize on operating systems}
+		    \skill[1.8em]{\faLinux}{Ubuntu, Fedora, CentOS}
+		    \skill[1.8em]{\faWindows}{Windows, Mac}
+		\skill{\faPencil}{Excellent communication, writing and presentation skills} 
+		
+		\small{{(*) [The skill scale is from 0 (Fundamental Awareness) to 5 (Expert).]}}
+
+
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+
+	\profilesection{About me}
+
+
+	\chartlabel{One day is ...}
+
+	\wheelchart{4em}{2em}{%
+  	45/3em/maincolor!30/Ph.D (Work),
+  	7/6em/maincolor!10/Entertainment,
+  	15/5em/maincolor!45/Badminton,
+  	4/3em/maincolor!20/Gym,
+  	25/4em/maincolor!30/Sleep,
+  	4/3em/maincolor!5/Cook
+	}
+	
+	%\chartlabel{I enjoy}
+	\begin{figure}\centering
+		\smartdiagram[bubble diagram]{
+			\textcolor{white}{\textbf{I}} \\ 
+			\textcolor{white}{\textbf{love}}, % center bubble	
+			\textcolor{black!90}{\faCutlery \hspace{2pt} Cheesecake},
+			\textcolor{black!90}{\faMotorcycle Riding},
+			\textcolor{black!90}{\faUniversity Learning},
+			\textcolor{black!90}{\faGlobe Travel},
+			\textcolor{black!90}{\faMusic Music},
+			\textcolor{black!100}{\faTerminal Coding}
+		}
+	\end{figure}
+	
+	\chartlabel{I would like to learn ...}
+	\begin{figure}\centering
+		\smartdiagram[bubble diagram]{
+			\textcolor{white}{\textbf{In}} \\ 
+			\textcolor{white}{\textbf{Future}}, % center bubble	
+			\textcolor{black!90}{AI},
+			\textcolor{black!90}{Neuroscience},
+			\textcolor{black!90}{Robotics},
+			\textcolor{black!90}{Machine learning},
+			\textcolor{black!90}{Economics}
+		}
+	\end{figure}
+
+
+
+}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{About Me}
+Physicist, programmer and an aspiring badminton and chess player. Being an avid programmer trained in the field of theoretical physics, I have realized that nature can be described by intelligent algorithms. Developing smart algorithms using my creative, analytical, programming, decision-making and problem-solving skills has been my passion. I am looking for career opportunities in industrial R\&D departments that utilizes programming skills to solve practical problems.  
+
+\cvsection{Work Experience}
+\begin{cvtable}
+    \cvitem{2016 -- now}{Ph.D. Researcher}{Wageningen University, Netherlands}{{\color{sectioncolor}Topic:} Development of Hybrid Monte-Carlo Self-Consistent Field Technique to incorporate fluctuations in mean-field theories. \\ {\color{sectioncolor}Tasks:} \newline \hspace{5pt} \faCode \hspace{5pt} Algorithm development and version control (review and merge features from collaborators). \\ \hspace{5pt} \faCogs \hspace{5pt} Using creative and analytical thinking to solve research problems. \hspace{5pt} \faSitemap \hspace{5pt} Planning meetings with supervisor and decision making. \\ \hspace{5pt} \faUniversity \hspace{5pt} Supervising and training Master/Bachelor thesis students, designing and guiding projects, assisting in courses.\\  \hspace{5pt} \faDesktop \hspace{5pt} Writing and publishing articles, creating and presenting works at international conferences. \\ {\color{sectioncolor}Tools:} C++, Installation of GeForce GTX, Ubuntu, Nvidia CUDA Toolkit, Bash, CUDA programming, Matlab, \LaTeX, Tikz, Beamer, Git, Libre Office, Atom, Vim, Gromacs.}
+    
+    \cvitem{2014 -- 2016}{Student Researcher}{Indian Institute of Science, India}{{\color{sectioncolor}Topic:} Understanding turbulence flows using computational techniques like Large-Eddy, Direct Numerical simulations. \\ {\color{sectioncolor}Tasks:} \newline  \hspace{5pt} \faCode \hspace{5pt} Algorithm development, MPI parallelization, deployment of jobs in supercomputers.\\  \hspace{5pt} \faCogs \hspace{5pt} Performing fast-fourier transforms, analyzing results. \\ \hspace{5pt} \faPencil \hspace{5pt} Writing articles and thesis. \\ {\color{sectioncolor}Tools:}  Using Cray X40, FORTRAN, MPI Programming, CentOS. }
+    
+    \cvitem{2013 -- 2014}{Junior Process Associate}{KGISL-GSS, India}{{\color{sectioncolor}Tasks:} \newline \hspace{5pt} \faCogs \hspace{5pt} Analyze sales data, develop metrics to quantify process. \\ \hspace{5pt} \faPencil \hspace{5pt} Writing reports, Attending staff meeting. \\ {\color{sectioncolor}Tools:}  Windows, Microsoft Office, Outlook. }
+\end{cvtable}
+
+\section{Education}
+\begin{cvtable}
+	\cvitem{2014 -- 2016}{Master of Engineering}{Indian Institute of Science, India}
+		{Focus: Turbulence computations. \\ Faculty: Department of Aerospace Engineering \\ Grade: 6.7/8 \\ Thesis: LES study of free jets and jets impinging on cuboidal cavity}
+	\cvitem{2010 -- 2014}{Bachelor of Engineering}{Anna University, India} 
+	    {Faculty: Department of Aeronautical Engineering\\ Grade: 8.5/10 \\ Thesis: Optimal Nozzle design using Method of Characteristics.}
+\end{cvtable}
+
+
+
+
+\cvsection{Awards}
+\begin{cvtable}
+	\cvitem{2014}{All India Rank $18$ in Graduate Aptitude Test for Engineering}{IIT}{}
+	\cvitem{2014}{Winner of Global Design Challenge}{Boeing/Infosys}{}
+	\cvitem{2008}{District $3^{rd}$ in State Examination}{Tamil Nadu}{}
+	\cvitem{Now}{Ranked $379$ at $18-2019$(NRB ranking)}{Badminton Nederland}{}
+	\cvitem{Now}{International master in Chess and rated $2132$ }{FIDE}{}
+\end{cvtable}
+
+
+
+
+
+\newpage
+\makebacksidebar
+
+\cvsection{Selected Publications}
+\begin{cvtable}
+	\cvitemshort{2018}{\href{https://link.aps.org/doi/10.1103/PhysRevLett.120.028003}{Sign Switch of Gaussian Bending Modulus for Microemulsions}}
+	\cvitemshort{2018}{\href{https://doi.org/10.1007/s12046-018-0921-z}{On Jet instability modes of a subsonic Hartmann whistle}}
+\end{cvtable}
+
+\cvsection{Extra-Curricular Activities}
+\begin{cvtable}
+	\cvitemshort{Badminton}{Playing National ranking circuit tournaments/League competitions}
+	\cvitemshort{Hockey}{Represented State of Tamil Nadu, India during 2008/2009}
+	\cvitemshort{Sports}{Chess, Bowling, Snooker are other sports I enjoy.}
+\end{cvtable}
+
+
+
+\cvsection{Courses}
+\begin{cvtable}
+	\cvitemshort{Physics}{Classical mechanics, Computation of viscous flows, Computational gas dynamics, computational heat transfer and fluid flow, fluid dynamics, Gas dynamics, Mechanics and thermodynamics of propulsion, Modeling in chemical engineering, Numerical methods, Statistical Thermodynamics, Turbulence modeling.}
+	\cvitemshort{General}{Dutch welcome course, Scientific writing, Art of presenting science, }
+	\cvitemshort{Schools}{Molsim 2017, Han-sur-Lesse winterschool 2017, 2018.}
+\end{cvtable}
+
+\section{MOOC}
+\subsection{Professional Certificate Programs}
+\begin{cvtable}
+	\cvitem{2016 -- now}{Data Science}{Harvard University}
+		{{\color{sectioncolor}Focus:} R Basics, Visualization, Probability, Inference and Modeling, Productivity Tools, Wrangling, Linear regression, Machine Learning \\ {\color{sectioncolor}Certificate:} \href{https://courses.edx.org/certificates/bf345a28a185437b8a2da04d6971fc69}{Click here}.}
+\end{cvtable}
+\subsection{Individual Certificates}
+\begin{cvtable}
+		\cvitem{2016}{Statistical Molecular Thermodynamics}{University of Minnesota}
+		{{\color{sectioncolor}Focus:} Thermodynamics, Heat transfer, Energy distribution, Ensembles, Entropy \\ {\color{sectioncolor}Certificate:} \href{https://www.coursera.org/account/accomplishments/certificate/CYRHDTBSU655}{Click here}.
+		}
+\end{cvtable}
+
+\section{Reference}
+Will be provided on request. 
+
+
+
+
+%\cvsignature
+
+\end{document} 
+
+
+
+	\cvitem{2016 -- now}{Ph.D. Researcher}{Wageningen University}{{\color{sectioncolor}Topic:} Development of Hybid Monte-Carlo Self-Consistent Field Technique to incorporate fluctuations in mean-field theories. \newline {\color{sectioncolor}Tasks:} \newline \hspace{5pt} \faCode \hspace{5pt} Algorithm development and version control (review and merge features from collaborators). \newline \hspace{5pt} \faCogs \hspace{5pt} Using creative and analytical thinking to solve research problems. \newline \hspace{5pt} \faSitemap \hspace{5pt} Planning meetings with supervisor and decision making. \newline \hspace{5pt} \faUniversity \hspace{5pt} Supervising and training Master/Bachelor thesis students, designing and guiding projects, assisting in courses. \newline \hspace{5pt} \faDesktop \hspace{5pt} Writing and publishing articles, creating and presenting works at international conferences. \newline {\color{sectioncolor}Tools:} C++, Installation of GeForce GTX 1060 XLR8, Ubuntu (18.04,16.06), Nvidia CUDA Toolkit (10.1), Bash, CUDA programming, Matlab, LaTeX, Tikz, Beamer, Git, Libre Office, Atom, Vim, Gromacs.}
+	\cvitem{2015 -- 2018}{Panda Scientist}{Bamboo University}{
+		Reasearching the impact of adequate bamboo nutrition compared to
+		conventional feeding methods.}
+	\cvitem{2010 -- 2015}{Bamboo Broker}{Stock Exchange}{Continuously achieving 
+		better bamboo bangs for the buck.}
+
+\cvsection{cvitem}
+\subsection{Multi-line with longer description}
+\begin{cvtable}
+	\cvitem{date}{Description}{location}{Some longer and more detailed 
+		description, that takes two lines	of space instead of only one.}
+	\cvitem{date}{Description}{location}{Some longer and more detailed 
+		description, that takes two lines	of space instead of only one.}
+	\cvitem{date}{Description}{location}{Some longer and more detailed 
+		description, that takes two lines	of space instead of only one.}
+\end{cvtable}
+
+\subsection{One-line without description}
+\begin{cvtable}
+	\cvitem{Award}{One-line description}{Sponsor}{}
+	\cvitem{Award}{One-line description}{Sponsor}{}
+	\cvitem{Award}{One-line description}{Sponsor}{}
+\end{cvtable}
+
+\cvsection{cvitemshort}
+\subsection{One-line}
+\begin{cvtable}
+	\cvitemshort{Key}{Some further description}
+	\cvitemshort{Key}{Some further description}
+	\cvitemshort{Key}{Some further description}
+\end{cvtable}
+
+\subsection{Multi-line with longer description}
+\begin{cvtable}
+	\cvitemshort{Key}{Some further description. Can fill even more than
+		only one single line while still keeping the correct indendation level.}
+	\cvitemshort{Key}{Some further description. Can fill even more than
+		only one single line while still keeping the correct indendation level.}
+	\cvitemshort{Key}{Some further description. Can fill even more than
+		only one single line while still keeping the correct indendation level.}
+\end{cvtable}
+
+
+	\profilesection{Soft Skills}
+		\pointskill{\faHome}{Looking Cute}{5}
+ 			\skill[1.8em]{\faCompress}{No need to specify further}
+		\pointskill{\faTasks}{Being Black \& White}{5}
+ 			\skill[1.8em]{\faCompress}{Having white parts}
+ 			\skill[1.8em]{\faCompress}{Having black parts}
+		\pointskill{\faChild}{Chillin' hard}{4}
+ 			\skill[1.8em]{\faCompress}{On a tree}
+ 			\skill[1.8em]{\faCompress}{On the grass}
+		\pointskill{\faComment}{Being an Idol}{3}
+ 			\skill[1.8em]{\faCompress}{Kung Fu Panda 1-3}
+ 			\skill[1.8em]{\faCompress}{WoW: Mists of Pandaria}
+ 			
+
+	\profilesection{About Me}
+	\aboutme{
+		The giant panda is a terrestrial animal and primarily spends its life
+		roaming and feeding in the bamboo forests of the Qinling Mountains and in
+		the hilly province of Sichuan.
+	}
+
+	\profilesection{Diagrams}
+	\chartlabel{Bubble Diagram}
+	\begin{figure}\centering
+		\smartdiagram[bubble diagram]{
+			\textcolor{white}{\textbf{Being a}} \\ 
+			\textcolor{white}{\textbf{Panda}}, % center bubble	
+			\textcolor{black!90}{Eating},
+			\textcolor{black!90}{Sleeping},
+			\textcolor{black!90}{Rolling},
+			\textcolor{black!90}{Playing},
+			\textcolor{black!90}{Chilling}
+		}
+	\end{figure}
+
+	\chartlabel{Wheel Chart}
+
+	\wheelchart{4em}{2em}{%
+  	20/3em/maincolor!50/Chill,
+  	15/3em/maincolor!15/Play,
+  	30/4em/maincolor!40/Sleep,
+  	20/3em/maincolor!20/Eat
+	}
+
+	\profilesection{Barskills}
+	\barskill{\faSkyatlas}{Wearing asian rice hats}{60}
+	\barskill{\faImage}{Playing Chess}{30}
+	\barskill{\faMusic}{Playing the bamboo flute}{50}
+
+	\profilesection{Memberships}
+	\begin{memberships}
+		\membership{pics/logo.png}{PandaScience.net}
+		\membership{pics/logo.png}{Here's some longer text spanning over more than
+			only one line}
+	\end{memberships}
+	
+	
+	\textbf{Dr. Frans A.M. Leermakers}, \newline
+Professor, \newline
+Physical Chemistry and Soft Matter, \newline
+Wageningen University. \newline
+\faEnvelope \hspace{5pt} \href{mailto:frans.leermakers@wur.nl}{frans.leermakers@wur.nl} \newline
+\faPhone \hspace{5pt} +31-60-2293 3027. \\
+
+\textbf{Dr. Joseph Mathew}, \newline
+Professor, \newline
+Department of Aerospace Engineering, \newline
+Indian Institute of Science. \newline
+\faEnvelope \hspace{5pt} \href{mailto:joseph@iisc.ac.in}{joseph@iisc.ac.in} \newline
+\faPhone \hspace{5pt} +91-80-2293 3027.
